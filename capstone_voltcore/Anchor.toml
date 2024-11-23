@@ -7,6 +7,10 @@ skip-lint = false
 [programs.localnet]
 capstone_voltcore = "2Fbhe8DXB7FGTqfBvuzn7FDAUQHuy5Lae8XBLthaYxbD"
 
+[[test.genesis]]
+address = "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d"
+program = "tests/programs/mpl_core_program.so"
+
 [registry]
 url = "https://api.apr.dev"
 
