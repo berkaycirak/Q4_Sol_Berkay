@@ -15,7 +15,7 @@ declare_id!("2Fbhe8DXB7FGTqfBvuzn7FDAUQHuy5Lae8XBLthaYxbD");
 pub mod capstone_voltcore {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        initialize::handler(ctx)
+    pub fn create_campaign_asset(ctx: Context<CreateCampaignAsset>, data: CreateCampaignAssetArgs) -> Result<()> {
+        ctx.accounts.process(data)
     }
 }
