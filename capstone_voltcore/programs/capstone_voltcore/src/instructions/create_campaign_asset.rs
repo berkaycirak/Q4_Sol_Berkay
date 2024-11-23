@@ -25,18 +25,18 @@ pub struct CreateCampaignAssetArgs {
 }
 
 impl<'info> CreateCampaignAsset<'info> {
-
-    pub fn process(
-        &mut self,
-        data: CreateCampaignAssetArgs,
-    ) -> Result<()> {
+    pub fn process(&mut self, data: CreateCampaignAssetArgs) -> Result<()> {
         let update_authority = match self.update_authority.as_ref() {
             Some(update_authority) => Some(update_authority.to_account_info()),
             None => None,
         };
 
         CreateCollectionV2CpiBuilder::new(self.mpl_core_program.to_account_info().as_ref())
-            .collection(self.campaign_asset_mpl_collection.to_account_info().as_ref())
+            .collection(
+                self.campaign_asset_mpl_collection
+                    .to_account_info()
+                    .as_ref(),
+            )
             .payer(self.payer.to_account_info().as_ref())
             .update_authority(update_authority.as_ref())
             .system_program(self.system_program.to_account_info().as_ref())
